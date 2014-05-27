@@ -8,45 +8,33 @@ import com.meterware.httpunit.WebRequest;
 import com.meterware.httpunit.WebResponse;
 
 public class CreateConverstation {
-	public void newone(String uu) {
+	public WebResponse newone(String uu) {
 		String url = uu;
-
+		WebResponse wr = null;
 		try {
+
 			WebConversation wc = new WebConversation();
 			WebRequest req = new GetMethodWebRequest(url);
 			WebResponse resp = wc.getResponse(req);
-			System.out.println(resp.getContentLength());
+			//System.out.println(resp.getContentType());
+			wr = resp;
 		} catch (IOException e) {
 			e.printStackTrace();
 		} catch (SAXException e) {
+
 			e.printStackTrace();
 		}
+		return wr;
 	}
-
-	public static void main(String[] args) {
-//		// TODO Auto-generated method stub
-		String url = "http://www.baidu.com";
-		// GetUrl gu=new GetUrl(url);
+/*
+ * test main method as below
+ 
+	public static void main(String args[]) {
+		String url = "http://httpunit.sourceforge.net/doc/cookbook.html";
 		CreateConverstation cc = new CreateConverstation();
-		cc.newone(url);
+		WebResponse wr = cc.newone(url);
+		System.out.println(wr.getCharacterSet());
+
 	}
-	
-	
-//	public static void main(String[] args) {
-//		GetUrl gu = new GetUrl("www.baidu.com");
-//		gu.printUrl();
-//		String url ="http://httpunit.sourceforge.net/doc/cookbook.html";
-//		try {
-//			
-//			WebConversation wc = new WebConversation();
-//			WebRequest req = new GetMethodWebRequest(url);
-//			WebResponse resp = wc.getResponse(req);
-//			System.out.println(resp.getContentLength());
-//		} catch (IOException e) {
-//			e.printStackTrace();
-//		} catch (SAXException e) {
-//
-//			e.printStackTrace();
-//		}
-//	}
+*/
 }

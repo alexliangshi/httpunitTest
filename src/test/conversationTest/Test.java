@@ -10,15 +10,15 @@ import com.meterware.httpunit.WebResponse;
 public class Test {
 
 	public static void main(String[] args) {
-		GetUrl gu = new GetUrl("www.baidu.com");
-		gu.printUrl();
+		//GetUrl gu = new GetUrl("www.baidu.com");
+		//gu.printUrl();
 		String url ="http://httpunit.sourceforge.net/doc/cookbook.html";
 		try {
 			
 			WebConversation wc = new WebConversation();
 			WebRequest req = new GetMethodWebRequest(url);
 			WebResponse resp = wc.getResponse(req);
-			System.out.println(resp.getContentLength());
+			System.out.println(resp.getContentType());
 		} catch (IOException e) {
 			e.printStackTrace();
 		} catch (SAXException e) {

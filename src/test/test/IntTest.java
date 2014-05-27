@@ -1,4 +1,5 @@
 package test.test;
+import com.meterware.httpunit.WebResponse;
 import test.basic.*;
 public class IntTest {
 
@@ -6,12 +7,11 @@ public class IntTest {
 	 * @param args
 	 */
 	public static void main(String[] args) {
-		// TODO Auto-generated method stub
-		String url="http://www.baidu.com";
+		String url="http://httpunit.sourceforge.net/doc/cookbook.html";
 		//GetUrl gu=new GetUrl(url);
-		
 		CreateConverstation cc= new CreateConverstation();
-		cc.newone(url);
+		WebResponse wr=cc.newone(url);
+		System.out.println(wr.getCharacterSet());
 	}
 
 }
