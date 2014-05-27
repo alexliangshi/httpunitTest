@@ -1,4 +1,4 @@
-package webTest;
+package test.webTest;
 import java.io.IOException;
 import com.meterware.httpunit.GetMethodWebRequest;
 import com.meterware.httpunit.WebConversation;
@@ -14,7 +14,7 @@ class Setup{
 		WebConversation wc = new WebConversation();
 		 try {
 		 WebRequest req = new GetMethodWebRequest(
-		 "http://10.0.31.46:6080/login/loginAuth.action");
+		 "http://10.0.33.12:6080/login/loginAuth.action");
 		 req.setParameter("strUserName", "optadmin");
 		 req.setParameter("strPassword", "111111");
 		 req.setParameter("strUserType", "gridview");

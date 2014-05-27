@@ -7,10 +7,11 @@
 	<classpathentry kind="lib" path="C:/Users/shl/Desktop/automatic/httpunit-1.7/httpunit-1.7/jars/servlet-api-2.4.jar"/>
 	<classpathentry kind="lib" path="C:/Users/shl/Desktop/automatic/httpunit-1.7/httpunit-1.7/jars/xercesImpl-2.6.1.jar"/>
 	<classpathentry kind="lib" path="C:/Users/shl/Desktop/automatic/httpunit-1.7/httpunit-1.7/jars/xmlParserAPIs-2.6.1.jar"/>
-	<classpathentry kind="lib" path="C:/Users/shl/Desktop/automatic/httpunit-1.7/httpunit-1.7/lib/httpunit.jar"/>
+	<classpathentry kind="lib" path="C:/Users/shl/Desktop/automatic/httpunit-1.7/httpunit-1.7/lib/httpunit.jar" sourcepath="C:/Users/shl/.m2/repository/httpunit/httpunit/1.7/httpunit-1.7-sources.jar"/>
 	<classpathentry kind="lib" path="C:/Users/shl/Desktop/automatic/httpunit-1.7/httpunit-1.7/jars/activation-1.1.jar"/>
 	<classpathentry kind="lib" path="C:/Users/shl/Desktop/automatic/httpunit-1.7/httpunit-1.7/jars/jtidy-4aug2000r7-dev.jar"/>
 	<classpathentry kind="lib" path="C:/Users/shl/Desktop/automatic/httpunit-1.7/httpunit-1.7/jars/mail-1.4.jar"/>
-	<classpathentry kind="lib" path="C:/Users/shl/Desktop/automatic/httpunit-1.7/httpunit-1.7/jars/nekohtml-0.9.5.jar"/>
+	<classpathentry kind="lib" path="C:/Users/shl/Desktop/automatic/httpunit-1.7/httpunit-1.7/jars/nekohtml-0.9.5.jar" sourcepath="C:/Users/shl/.m2/repository/nekohtml/nekohtml/0.9.5/nekohtml-0.9.5-sources.jar"/>
+	<classpathentry kind="lib" path="C:/Users/shl/Desktop/automatic/httpunit-1.7/httpunit-1.7/doc/tutorial/src/tutorial"/>
 	<classpathentry kind="output" path="bin"/>
 </classpath>
