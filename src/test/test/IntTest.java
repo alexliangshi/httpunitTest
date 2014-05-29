@@ -13,5 +13,4 @@ public class IntTest {
 		WebResponse wr=cc.newone(url);
 		System.out.println(wr.getCharacterSet());
 	}
-
 }
