@@ -1,4 +1,4 @@
-package test.webTest;
+package test.webTest.gridview.login;
 
 public class POSTtest {
 

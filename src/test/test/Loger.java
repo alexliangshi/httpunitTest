@@ -1,7 +1,7 @@
 package test.test;
 
 import org.apache.logging.log4j.LogManager;
-import org.apache.logging.log4j.simple.SimpleLogger;;
+import org.apache.logging.log4j.simple.SimpleLogger;
 
 public class Loger {
 	private static SimpleLogger logger = (SimpleLogger) LogManager.getLogger("HelloWorld");
