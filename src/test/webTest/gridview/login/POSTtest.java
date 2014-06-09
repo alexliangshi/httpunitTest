@@ -1,13 +1,13 @@
 package test.webTest.gridview.login;
+import test.conversationTest.GridviewCreatePOSTConversation;
+public class POSTtest{
 
-public class POSTtest {
-
-	/**
-	 * @param args
-	 */
 	public static void main(String[] args) {
-		// TODO Auto-generated method stub
-
+		
+		GridviewCreatePOSTConversation cps = new GridviewCreatePOSTConversation();
+		
+			cps.setup();
+		
+		
 	}
-
 }
