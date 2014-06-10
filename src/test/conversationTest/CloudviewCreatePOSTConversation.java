@@ -1,58 +1,54 @@
 package test.conversationTest;
 
 import java.io.IOException;
-import org.xml.sax.SAXException;
-import com.meterware.httpunit.GetMethodWebRequest;
-import com.meterware.httpunit.HttpUnitOptions;
-import com.meterware.httpunit.WebClient;
-import com.meterware.httpunit.WebConversation;
-import com.meterware.httpunit.WebRequest;
-import com.meterware.httpunit.WebResponse;
+import java.util.ArrayList;
+import java.util.List;
 
+import org.apache.http.HttpEntity;
+import org.apache.http.NameValuePair;
+import org.apache.http.client.entity.UrlEncodedFormEntity;
+import org.apache.http.client.methods.CloseableHttpResponse;
+import org.apache.http.client.methods.HttpGet;
+import org.apache.http.client.methods.HttpPost;
+import org.apache.http.impl.client.CloseableHttpClient;
+import org.apache.http.impl.client.HttpClients;
+import org.apache.http.message.BasicNameValuePair;
+import org.apache.http.util.EntityUtils;
 public class CloudviewCreatePOSTConversation {
+	private String txt;
+
 	public void setup() {
-		WebConversation wc = new WebConversation();
-		
-		String[] sp = null;
+		String url= "http://10.0.33.93:8181/webapps.hostbundle/login";
+		CloseableHttpClient httpclient = HttpClients.createDefault();
+		HttpGet httpget = new HttpGet(url);
+		HttpPost httpPost = new HttpPost(url);
 		try {
-			System.out.println("开始执行创建会话..........");
-			HttpUnitOptions.setExceptionsThrownOnScriptError(false);
-			WebClient ww =wc;
-			WebRequest req = new GetMethodWebRequest(
-					"http://10.0.33.93:8181/webapps.hostbundle/login");//
-			System.out.println("传递会话参数..........");
-			req.setParameter("password", "123456");
-			req.setParameter("username", "sugon1111");
-			WebResponse resp = wc.getResponse(req);
-			System.out.println("当前URL是: " + resp.getURL());
-			System.out.println("参数列表如下: ");
-			System.out.println("username: " + "sugon");
-			System.out.println("strPassword: " + "123456");
-			System.out.println("用例:测试登陆" + "\t执行测试结果如下: ");
-			System.out.println("预期结果为：" + "登  录");
-			CharSequence aa = "登  录";
-			// System.out.println(resp.getText());
-			if (resp.getText().contains(aa) == true) {
-				System.out.println("测试通过");
-			} else {
-				System.out.println("测试失败");
-			}
-			String s[] = resp.getHeaderFields("Set-Cookie");
-			for (int i = 0; i < s.length; i++) {
-				System.out.println(s[i] + "   ");
-			}
-			sp = resp.getHeaderField("Set-Cookie").split(";");
-			System.out.println("获取Cookie信息为:\t" + sp[0]);
-			WebRequest req1 = new GetMethodWebRequest(
-					"http://10.0.33.93:8181/webapps.hostbundle/host/template/toHostTemplatePage");//
-			WebResponse resp1 = wc.getResponse(req1);
-			ww.addCookie("Set-Cookie", sp[0]);
-			System.out.println(resp1.getText());
+			CloseableHttpResponse Postres = httpclient.execute(httpPost);
+			CloseableHttpResponse Getres = httpclient.execute(httpPost);
+			System.out.println("GET请求状态行:"+Getres.getStatusLine());	
+			txt = null;
+			HttpEntity entity= Postres.getEntity();
+			List <NameValuePair> nvps = new ArrayList <NameValuePair>();
+			System.out.println("请求的URL为: "+httpget.getURI());
+			System.out.println("请求的方法为"+httpPost.getMethod());
+			nvps.add(new BasicNameValuePair("username", "sugon"));
+			nvps.add(new BasicNameValuePair("password", "123456"));
+			httpPost.setEntity(new UrlEncodedFormEntity(nvps));
+			CloseableHttpResponse res2 = httpclient.execute(httpPost);
 			
+			entity=res2.getEntity();
+			txt=EntityUtils.toString(entity,"UTF-8");
+			String s = "用户认证失败：用户不存在！";
+//			Assert.assertEquals(txt.contains(s),true);
+			if(txt.contains(s)==true){
+				System.out.println("测试通过");
+			}else{
+				System.out.println("测试不通过");
+			}
+			Postres.close();
 		} catch (IOException e) {
+			// TODO Auto-generated catch block
 			e.printStackTrace();
-		} catch (SAXException e) {
-			e.printStackTrace();
-		} 
+		}
 	}
 }
