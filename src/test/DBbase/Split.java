@@ -1,4 +1,4 @@
-package sr;
+package test.DBbase;
 
 public class Split {
 	

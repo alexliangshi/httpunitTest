@@ -42,5 +42,19 @@
 	<classpathentry kind="lib" path="C:/Users/shl/Desktop/automatic/httpcomponents-client-4.3.4-bin/httpcomponents-client-4.3.4/lib/httpmime-4.3.4.jar"/>
 	<classpathentry kind="lib" path="C:/Users/shl/Desktop/automatic/testng-6.8/testng-6.8/testng-6.8.jar"/>
 	<classpathentry kind="lib" path="C:/Users/shl/Desktop/automatic/testng-6.8/testng-6.8/other-jars/testng-6.8-javadoc.zip"/>
+	<classpathentry kind="lib" path="D:/software/开发工具/各种java类库/poi-bin-3.9-20121203/poi-3.9/poi-3.9-20121203.jar"/>
+	<classpathentry kind="lib" path="D:/software/开发工具/各种java类库/poi-bin-3.9-20121203/poi-3.9/poi-examples-3.9-20121203.jar"/>
+	<classpathentry kind="lib" path="D:/software/开发工具/各种java类库/poi-bin-3.9-20121203/poi-3.9/poi-excelant-3.9-20121203.jar"/>
+	<classpathentry kind="lib" path="D:/software/开发工具/各种java类库/poi-bin-3.9-20121203/poi-3.9/poi-ooxml-3.9-20121203.jar"/>
+	<classpathentry kind="lib" path="D:/software/开发工具/各种java类库/poi-bin-3.9-20121203/poi-3.9/poi-ooxml-schemas-3.9-20121203.jar"/>
+	<classpathentry kind="lib" path="D:/software/开发工具/各种java类库/poi-bin-3.9-20121203/poi-3.9/poi-scratchpad-3.9-20121203.jar"/>
+	<classpathentry kind="lib" path="D:/software/开发工具/各种java类库/poi-bin-3.9-20121203/poi-3.9/lib/commons-codec-1.5.jar"/>
+	<classpathentry kind="lib" path="D:/software/开发工具/各种java类库/poi-bin-3.9-20121203/poi-3.9/lib/commons-logging-1.1.jar"/>
+	<classpathentry kind="lib" path="D:/software/开发工具/各种java类库/poi-bin-3.9-20121203/poi-3.9/lib/junit-3.8.1.jar"/>
+	<classpathentry kind="lib" path="D:/software/开发工具/各种java类库/poi-bin-3.9-20121203/poi-3.9/lib/log4j-1.2.13.jar"/>
+	<classpathentry kind="lib" path="D:/software/开发工具/各种java类库/poi-bin-3.9-20121203/poi-3.9/ooxml-lib/dom4j-1.6.1.jar"/>
+	<classpathentry kind="lib" path="D:/software/开发工具/各种java类库/poi-bin-3.9-20121203/poi-3.9/ooxml-lib/stax-api-1.0.1.jar"/>
+	<classpathentry kind="lib" path="D:/software/开发工具/各种java类库/poi-bin-3.9-20121203/poi-3.9/ooxml-lib/xmlbeans-2.3.0.jar"/>
+	<classpathentry kind="lib" path="D:/eclipse/plugins/mysql-connector-java-5.1.18-bin.jar"/>
 	<classpathentry kind="output" path="bin"/>
 </classpath>

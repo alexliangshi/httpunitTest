@@ -1,4 +1,4 @@
-package sr;
+package test.DBbase;
 
 import java.util.Random;
 import java.util.regex.Pattern;
@@ -6,13 +6,13 @@ import java.util.regex.Pattern;
 public class RandomCreateString {
 	
 	/**
-	 * 随机生成字符串
+	 * 随机生成字符�?
 	 * 
-	 * @param mask 取值范围
-	 * @param shuziNotStart  控制数字是否在随机字符串的第一位出现。当为true时，不会在第一位出现；反之可能会出现。
+	 * @param mask 取�?范围
+	 * @param shuziNotStart  控制数字是否在随机字符串的第�?��出现。当为true时，不会在第�?��出现；反之可能会出现�?
 	 * @param booWord 包含中文
-	 * @param minLength 最小字符串长度
-	 * @param maxLength 最大字符串长度
+	 * @param minLength �?��字符串长�?
+	 * @param maxLength �?��字符串长�?
 	 * @return String
 	 */
 	public static String randString(String mask,boolean shuziNotStart,boolean booWord, int minLength,int maxLength)
@@ -25,7 +25,7 @@ public class RandomCreateString {
 		
 		if(booWord)
 		{
-			//随机生成20个汉字追加到mask上
+			//随机生成20个汉字追加到mask�?
 			StringBuffer nbuf = new StringBuffer();
 			for (int i=0;i<20;i++)
 			{
@@ -37,7 +37,7 @@ public class RandomCreateString {
 		
 		Random rand = new Random();
 		
-		// 先确定名称字符长度
+		// 先确定名称字符长�?
 		int charlen = maxLength - minLength + 1;		
 		int[] lens = new int[ charlen ];
 		for (int i=0;i<charlen;i++)
@@ -51,7 +51,7 @@ public class RandomCreateString {
 		char[] secs = mask.toCharArray();
 				
 		StringBuffer buf = new StringBuffer();
-		//从字符数组中随机搞出 len 个字符
+		//从字符数组中随机搞出 len 个字�?
 		
 		for (int i=0;i<len;)
 		{
@@ -59,7 +59,7 @@ public class RandomCreateString {
 						
 			if ( shuziNotStart )
 			{			
-				// 屏蔽数字不能排在最前面
+				// 屏蔽数字不能排在�?���?
 				if ( i == 0 )
 				{				
 					if ( Pattern.matches("[0-9]", String.valueOf(sec)) )
@@ -121,7 +121,7 @@ public class RandomCreateString {
 	}
 	
 	/**
-	 * 随机生成一定长度的数字
+	 * 随机生成�?��长度的数�?
 	 * @param length
 	 * @return
 	 */
@@ -136,12 +136,12 @@ public class RandomCreateString {
 	    return sb.toString();   
 	 } 
 	/**
-	 * 随机生成特殊字符串
+	 * 随机生成特殊字符�?
 	 * @param length
 	 * @return
 	 */
 	public static String getSpecialString(int length) { //length表示生成字符串的长度
-	    String base = "~!@#$%^&*()_+|?><,./\\=-`:\";''：“”~！@#￥%……&*（）——+|？》《，。、、=-·"; 
+	    String base = "~!@#$%^&*()_+|?><,./\\=-`:\";''：�?”~！@#�?…�?&*（）—�?+|？�?《，。�?�?-·"; 
 	    Random random = new Random();   
 	    StringBuffer sb = new StringBuffer();   
 	    for (int i = 0; i < length; i++) {   

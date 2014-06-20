@@ -1,4 +1,4 @@
-package sr;
+package test.DBbase;
 
 import java.sql.Connection;
 import java.sql.DatabaseMetaData;

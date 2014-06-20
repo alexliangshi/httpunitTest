@@ -1,6 +1,5 @@
-package sr;
+package test.DBbase;
 
-import java.lang.Thread.State;
 import java.sql.Connection;
 //import java.sql.DatabaseMetaData;
 import java.sql.DriverManager;
@@ -32,7 +31,7 @@ class LinkMy {
 		this.url = url;
 		this.user = user;
 		this.passwd = passwd;
-		
+
 		try {
 			Class.forName(this.driver);
 			conn = DriverManager.getConnection(url, user, passwd);
@@ -51,24 +50,26 @@ class LinkMy {
 
 	public void closeLink() throws SQLException {
 		this.conn.close();
-		System.out.println("DBlink is closed.");
+//		System.out.println("DBlink is closed.");
 	}
 
 	public void createDB(String DBlinkString, String DBname, String CharSet,
 			String user, String passwd) {
-		Connection conn1=null;
+		Connection conn1 = null;
 		final String sql = "CREATE  DATABASE " + DBname;
 		String url = DBlinkString + DBname + CharSet;
-		System.out.println("sql is " + sql);
+		// System.out.println("sql is " + sql);
 		System.out.println("url is " + url);
 		try {
 
 			Class.forName(this.driver);
 			conn = DriverManager.getConnection(url, user, passwd);
-			if (!conn.isClosed()){
+			if (!conn.isClosed()) {
 				System.out.println("Succeeded connecting to the Database!");
-				System.out.println("DataBase "+"["+DBname+"]"+" exists , no need to create.");
+				System.out.println("DataBase " + "[" + DBname + "]"
+						+ " exists , no need to create.");
 				System.exit(0);
+				
 			}
 			//
 		} catch (ClassNotFoundException e) {
@@ -83,21 +84,22 @@ class LinkMy {
 		}
 		try {
 			String urlo = DBlinkString + "mysql" + CharSet;
-//			System.out.println("urlo"+urlo);
+			// System.out.println("urlo"+urlo);
 			String createtable = "create table mismatch_user ("
 					+ "user_id varchar (300) ," + "username varchar (300),"
-					+ "password varchar (300));";
+					+ "password varchar (300))"
+					+ "ENGINE= InnoDB CHARACTER SET " + "utf8;";
 			conn = DriverManager.getConnection(urlo, user, passwd);
 			Statement stmt = conn.createStatement();
 			stmt.executeUpdate(sql);
-			conn1=DriverManager.getConnection(url, user, passwd);
-			Statement stmt1= conn1.createStatement();
+			conn1 = DriverManager.getConnection(url, user, passwd);
+			Statement stmt1 = conn1.createStatement();
 			stmt1.executeUpdate(createtable);
 			stmt.close();
 			conn.close();
 			stmt1.close();
 			conn1.close();
-			System.out.println("DB "+"["+DBname+"]"+" is created.");
+			System.out.println("DB " + "[" + DBname + "]" + " is created.");
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
@@ -106,7 +108,7 @@ class LinkMy {
 	}
 }
 
-public class CopyOfDBlink {
+public class Temp {
 	static int q = 0;
 
 	/**
@@ -152,8 +154,8 @@ public class CopyOfDBlink {
 		LinkMy l = new LinkMy();
 		ResultSet rs;
 		sql = sql + "\"" + s + "\"";
-
-		System.out.println(sql);
+		// 调试：打印sql
+		// System.out.println(sql);
 
 		try {
 			Statement stmt = l
@@ -222,7 +224,7 @@ public class CopyOfDBlink {
 	 *            要处理的Sql条目数
 	 */
 	public void roll(String s, String ii, String t, int n) {
-		CopyOfDBlink cpdb = new CopyOfDBlink();
+		Temp cpdb = new Temp();
 
 		for (int i = 1; i < n; i++) {
 			String[] p = { RandomCreateString.getRandomString(10),
@@ -243,20 +245,20 @@ public class CopyOfDBlink {
 	}
 
 	public static void main(String[] args) {
-		String i ="insert into mismatch_user (user_id,username,password) values (";
-		String s = "select user_id from mismatch_user where user_id="; 
-		String t = null; 
-		String DBname="test";
-		String[] a = s.split(" "); 
+		String i = "insert into mismatch_user (user_id,username,password) values (";
+		String s = "select user_id from mismatch_user where user_id=";
+		String t = null;
+		String DBname = "test";
+	
+		String[] a = s.split(" "); // 解析DML标识，是insert还是select
+		t = a[0]; // 将解析的DML标识存入临时字符串变量t，暂为实现处理方式
 		LinkMy lmp = new LinkMy();
-		lmp.createDB("jdbc:mysql://127.0.0.1:3306/", DBname,
+		Temp cpdb = new Temp();
+	lmp.createDB("jdbc:mysql://127.0.0.1:3306/", DBname,
 				"?useUnicode=true&characterEncoding=utf8", "root", "1234");
-		// demo测试代码
-		  CopyOfDBlink cpdb = new CopyOfDBlink(); 
-		  t = a[0]; //
-		  System.out.println(a[0]);
-		  cpdb.roll(s, i, t, 20);
-
+			// demo测试代码
+			// System.out.println(a[0]);
+			cpdb.roll(s, i, t, 20);
 		/*
 		 * for (int i = 1; i < 100; i++) { cpdb.insert(
 		 * "insert into mismatch_user (user_id,username,password) ",
