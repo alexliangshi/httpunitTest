@@ -11,37 +11,44 @@ import org.eclipse.jetty.util.log.Log;
 import dataDo.GenSql;
 
 public class MainClass {
-	static DataConfig dc = new DataConfig();
+	
 	static int q = 0;
-	public String driver = dc.returnDriver();
-	final private static String jdbc = dc.returnJdbc();
-	public static String charSet = dc.returnCharSet();
-	private static String url = dc.returnUrl();
-	private static String user = dc.returnUser();
-	private static String passwd = dc.returnPasswd();
+	private String driver = null;
+	private static String jdbc = null;
+	private static String charSet = null;
+	private static String url = null;
+	private static String user = null;
+	private static String passwd = null;
+	private static String Tablename= null;
+	private static String DBname = null;
 	private Connection conn = null;
-	public static String DBname = "test1";
 	Logger lgo;
-
+public MainClass(){
+	DataConfig dc = new DataConfig();
+	driver = dc.returnDriver();
+	jdbc=dc.returnJdbc();
+	charSet = dc.returnCharSet();
+	url = dc.returnUrl();
+	user = dc.returnUser();
+	passwd = dc.returnPasswd();
+	Tablename= dc.returnTablename();
+	DBname = dc.returnDBname();
+}
 	public void Do(int n) {
-		String insertSql = "insert into mismatch_user (user_id,username,password) values (";
-		String selectSql = "select user_id from mismatch_user where user_id=";
+		String insertSql = "insert into "+Tablename+" (user_id,username,password) values (";
+		String selectSql = "select user_id from "+Tablename+" where user_id=";
 		String DBlink = jdbc + DBname + charSet;
 		MainClass lmp = new MainClass();
 		String t = null;
 		String[] a = selectSql.split(" "); // 解析DML标识，是insert还是select
 		t = a[0]; // 将解析的DML标识存入临时字符串变量t，暂为实现处理方式
 		if (lmp.execCheckDBExsit(DBlink, user, passwd) == true) {
-			lmp.createDB(DBlink, "root", "1234");
+			lmp.createDB(DBlink, user, passwd);
 		}
 		lmp.roll(DBlink, insertSql, t, n);
 	}
 
-	public static void main(String[] args) {
-		MainClass aaa = new MainClass();
-		aaa.Do(10);
-	}
-
+	
 	/**
 	 * 连接数据库
 	 * 

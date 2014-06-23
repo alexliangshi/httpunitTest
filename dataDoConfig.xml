@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<dataDo>
+<driver>com.mysql.jdbc.Driver</driver>
+<jdbc>jdbc:mysql://127.0.0.1:3306/</jdbc>
+<DML>
+<first>insert</first>
+<second>select</second>
+<third>update</third>
+</DML>
+<charSet>?useUnicode=true&amp;characterEncoding=utf8</charSet>
+<url>www.sugon.com.cn</url>
+<user>root</user>
+<passwd>1234</passwd>
+<DBname>test</DBname>
+<Tablename>mismatch_user</Tablename>
+</dataDo>
